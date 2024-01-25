@@ -4,7 +4,7 @@
     "description": "Wellness and Productivity Extension",
     "version": "1.0",
     "action": {
-        "default_popup": "ui/src/index.html",
+        "default_popup": "ui/build/index.html",
         "default_icon": "ui/public/logo192.png"
     }
 }
