@@ -28,4 +28,5 @@ module.exports = {
 			template: "./public/index.html",
 		}),
 	],
+	devtool: "cheap-module-source-map",
 };
