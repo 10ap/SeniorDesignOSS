@@ -2,6 +2,7 @@
 export async function initTracker() {
 	setInterval(trackerFunc, 1000);
 }
+
 function extractHostname(url) {
 	let hostname;
 	if (url === undefined) return "";
