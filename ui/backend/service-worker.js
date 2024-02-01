@@ -1,5 +1,6 @@
-// import the initTracker function from tracker.js
+/* eslint-disable no-undef */
 import { initTracker } from "./tracker.js";
-// import Browser from "webextension-polyfill";
+
+console.log("Service worker loaded");
 
 initTracker();

@@ -5,7 +5,7 @@
     "version": "1.0",
     "background": {
         "type": "module",
-        "service_worker": "ui/backend/service-worker.js"
+        "service_worker": "ui/build/background.bundle.js"
     },
     "action": {
         "default_popup": "ui/build/index.html",
