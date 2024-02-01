@@ -1,10 +1,24 @@
 {
     "manifest_version": 3,
-    "name": "Wellness Extension",
-    "description": "Wellness and Productivity Extension",
+    "name": "WellQuest",
     "version": "1.0",
+    "description": "Tracks time spent on specific websites.",
+    "permissions": ["storage", "tabs", "activeTab", "<all_urls>"],
+    "background": {
+      "service_worker": "ui/background.js"
+    },
     "action": {
-        "default_popup": "ui/build/index.html",
-        "default_icon": "ui/public/logo192.png"
+      "default_popup": "ui/popup.html",
+      "default_icon": {
+        "16": "ui/public/icon16.png",
+        "48": "ui/public/icon48.png",
+        "128": "ui/public/icon128.png"
+      }
+    },
+    "icons": {
+      "16": "ui/public/icon16.png",
+      "48": "ui/public/icon48.png",
+      "128": "ui/public/icon128.png"
     }
-}
+  }
+  
