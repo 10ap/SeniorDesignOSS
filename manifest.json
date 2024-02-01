@@ -4,7 +4,8 @@
     "description": "Wellness and Productivity Extension",
     "version": "1.0",
     "background": {
-        "service_worker": "backend/service-worker.js"
+        "type": "module",
+        "service_worker": "ui/backend/service-worker.js"
     },
     "action": {
         "default_popup": "ui/build/index.html",
