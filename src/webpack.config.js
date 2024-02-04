@@ -5,7 +5,7 @@ const webpack = require("webpack");
 module.exports = {
 	mode: "development",
 	entry: {
-		content: "./src/index.js",
+		content: "./frontend/index.js",
 		background: "./backend/service-worker.js",
 	},
 	output: {
