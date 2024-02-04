@@ -21,7 +21,7 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
-                  cache-dependency-path: ".src/package-lock.json"
+                  cache-dependency-path: "./src/package-lock.json"
             - run: |
                   cd src 
                   npm i # install the dependencies
