@@ -1,10 +1,17 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
 	mode: "development",
-	entry: "./src/index.js",
-	output: { path: path.resolve(__dirname, "build"), filename: "bundle.js" },
+	entry: {
+		content: "./frontend/index.js",
+		background: "./backend/service-worker.js",
+	},
+	output: {
+		filename: "[name].bundle.js",
+		path: path.resolve(__dirname, "build"),
+	},
 	module: {
 		rules: [
 			{
@@ -26,6 +33,9 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: "./public/index.html",
+		}),
+		new webpack.ProvidePlugin({
+			browser: "webextension-polyfill",
 		}),
 	],
 	devtool: "cheap-module-source-map",

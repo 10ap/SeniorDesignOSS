@@ -3,8 +3,15 @@
     "name": "Wellness Extension",
     "description": "Wellness and Productivity Extension",
     "version": "1.0",
+    "background": {
+        "type": "module",
+        "service_worker": "src/build/background.bundle.js"
+    },
     "action": {
-        "default_popup": "ui/build/index.html",
-        "default_icon": "ui/public/logo192.png"
-    }
+        "default_popup": "src/build/index.html",
+        "default_icon": "src/public/logo192.png"
+    },
+    "permissions": [
+        "activeTab", "tabs"
+    ]
 }
