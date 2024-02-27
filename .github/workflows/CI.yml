@@ -24,7 +24,7 @@ jobs:
                   cache-dependency-path: "./src/package-lock.json"
             - run: |
                   cd src 
-                  npm ci # it's better to use npm ci in CI/CD pipelines for installing dependencies to respect package-lock.json
+                  npm install 
                   npm run build --if-present # build the package
             - name: Run Jest tests
               run: |
