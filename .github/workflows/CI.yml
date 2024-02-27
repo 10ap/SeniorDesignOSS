@@ -15,15 +15,15 @@ jobs:
                 node-version: [18.x, 20.x] # test 2 versions of node for a diffoscope later
 
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v2
             - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v2
               with:
+                  path: "WellQuest"
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
-                  cache-dependency-path: "./src/package-lock.json"
+                  cache-dependency-path: "./package-lock.json"
             - run: |
-                  cd 
                   npm install 
                   npm run build --if-present # build the package
             - name: Run Jest tests
