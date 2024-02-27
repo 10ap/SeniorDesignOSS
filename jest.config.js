@@ -19,5 +19,9 @@ module.exports = {
 
     moduleNameMapper: {
         "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-      }
+      },
+      transform: {
+        '^.+\\.[t|j]sx?$': 'babel-jest', // Use babel-jest to transpile tests
+      },
+
 };

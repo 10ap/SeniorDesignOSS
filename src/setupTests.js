@@ -3,4 +3,4 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 // setupTests.js
-import '@testing-library/jest-dom/extend-expect';
+require('@testing-library/jest-dom/extend-expect');
