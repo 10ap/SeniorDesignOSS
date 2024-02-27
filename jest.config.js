@@ -16,4 +16,8 @@ module.exports = {
     
     // Setup files after the environment is loaded
     setupFilesAfterEnv: ["./src/setupTests.js"], // Replace with the path to your setup file
+
+    moduleNameMapper: {
+        "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+      }
 };
