@@ -1,4 +1,12 @@
 /* eslint-disable no-undef */
+import { injectTabsRepositorySingleton } from "./tabs/injectTabRepository.js";
+import { Tab } from "./tabs/tabs.js";
+
+let currentObj = {
+	tab: Tab,
+	activeDomain: "",
+};
+
 export async function initTracker() {
 	setInterval(trackerFunc, 1000);
 }
@@ -38,12 +46,25 @@ function isValidPage(tab) {
 }
 
 async function trackerFunc() {
+	const repo = await injectTabsRepositorySingleton();
 	const window = await browser.windows.getLastFocused({ populate: true });
-	if (window.focused) {
+	if (window != null) {
 		const activeTab = window.tabs?.find((t) => t.active === true);
 		if (isValidPage(activeTab)) {
 			const activeDomain = extractHostname(activeTab.url);
-			console.log("Active domain: " + activeDomain);
+			let tab = repo.getTab(activeDomain);
+			if (tab === undefined) {
+				tab = await repo.addTab(activeDomain);
+			}
+			if (currentObj != null) {
+				currentObj.tab = tab;
+				tab.incCounter();
+				currentObj.activeDomain = activeDomain;
+				if (tab.favicon === "" && activeTab.favIconUrl !== undefined)
+					tab.setFavicon(activeTab.favIconUrl);
+			}
 		}
 	}
+
+	console.log(currentObj.tab);
 }
