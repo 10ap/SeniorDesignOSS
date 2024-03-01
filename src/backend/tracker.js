@@ -7,6 +7,8 @@ let currentObj = {
 	activeDomain: "",
 };
 
+let activeTab = null;
+
 export async function initTracker() {
 	setInterval(trackerFunc, 1000);
 }
@@ -49,7 +51,7 @@ async function trackerFunc() {
 	const repo = await injectTabsRepositorySingleton();
 	const window = await browser.windows.getLastFocused({ populate: true });
 	if (window != null) {
-		const activeTab = window.tabs?.find((t) => t.active === true);
+		activeTab = window.tabs?.find((t) => t.active === true);
 		if (isValidPage(activeTab)) {
 			const activeDomain = extractHostname(activeTab.url);
 			let tab = repo.getTab(activeDomain);
@@ -66,5 +68,5 @@ async function trackerFunc() {
 		}
 	}
 
-	console.log(currentObj.tab);
+	console.log(repo);
 }

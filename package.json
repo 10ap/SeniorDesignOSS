@@ -13,9 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "webpack",
-    "test": "jest",
-    "eject": "react-scripts eject"
+    "build": "webpack --no-stats",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [
