@@ -6,11 +6,107 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: top;
   justify-content: top;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.tabs{
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tabs input[name='tab-control'] {
+  display: none;
+}
+
+.tabs ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  font-size: large;
+}
+
+.tabs ul li {
+  box-sizing: border-box;
+  flex: 1;
+  width: 25%;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.tabs ul li label {
+  transition: all 0.3s ease-in-out;
+  color: #929daf;
+  padding: 5px auto;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tabs ul li label:hover,
+.tabs ul li label:focus,
+.tabs ul li label:active {
+  outline: 0;
+  color: #bec5cf;
+}
+
+.tabs ul li label:hover img,
+.tabs ul li label:focus img,
+.tabs ul li label:active img {
+  filter: #bec5cf;
+}
+
+.tabs input[name='tab-control']:nth-of-type(1):checked~ul>li:nth-child(1)>label {
+  cursor: default;
+  color: #428bff;
+}
+
+.tabs input[name='tab-control']:nth-of-type(1):checked~ul>li:nth-child(1)>label img {
+  filter: brightness(0) saturate(100%) invert(59%) sepia(82%) saturate(4677%) hue-rotate(202deg) brightness(103%) contrast(101%);
+}
+
+.tabs input[name='tab-control']:nth-of-type(2):checked~ul>li:nth-child(2)>label {
+  cursor: default;
+  color: #428bff;
+}
+
+.tabs input[name='tab-control']:nth-of-type(2):checked~ul>li:nth-child(2)>label img {
+  filter: brightness(0) saturate(100%) invert(59%) sepia(82%) saturate(4677%) hue-rotate(202deg) brightness(103%) contrast(101%);
+}
+
+.tabs input[name='tab-control']:nth-of-type(3):checked~ul>li:nth-child(3)>label {
+  cursor: default;
+  color: #428bff;
+}
+
+.tabs input[name='tab-control']:nth-of-type(3):checked~ul>li:nth-child(3)>label img {
+  filter: brightness(0) saturate(100%) invert(59%) sepia(82%) saturate(4677%) hue-rotate(202deg) brightness(103%) contrast(101%);
+}
+
+.tabs ul li label {
+  white-space: initial;
+}
+
+.tabs ul li label img {
+  height: 1.2em;
 }

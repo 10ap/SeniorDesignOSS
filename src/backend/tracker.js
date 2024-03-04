@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import { injectTabsRepositorySingleton } from "./tabs/injectTabRepository.js";
 import { Tab } from "./tabs/tabs.js";
+import { extractHostname } from "./utils.js";
 
 let currentObj = {
 	tab: Tab,
@@ -11,26 +12,6 @@ let activeTab = null;
 
 export async function initTracker() {
 	setInterval(trackerFunc, 1000);
-}
-
-function extractHostname(url) {
-	let hostname;
-	if (url === undefined) return "";
-
-	if (url.startsWith("file:")) {
-		return url;
-	}
-
-	if (url.indexOf("//") > -1) {
-		hostname = url.split("/")[2];
-	} else {
-		hostname = url.split("/")[0];
-	}
-
-	hostname = hostname.split(":")[0];
-	hostname = hostname.split("?")[0];
-
-	return hostname;
 }
 
 function isValidPage(tab) {
@@ -68,5 +49,5 @@ async function trackerFunc() {
 		}
 	}
 
-	console.log(repo);
+	// console.log(repo);
 }

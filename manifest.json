@@ -12,6 +12,6 @@
         "default_icon": "src/public/logo192.png"
     },
     "permissions": [
-        "activeTab", "tabs"
+        "activeTab", "tabs", "storage"
     ]
 }

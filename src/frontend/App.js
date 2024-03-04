@@ -1,30 +1,39 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
-import { injectTabsRepositorySingleton } from "../backend/tabs/injectTabRepository.js";
+import React, { useState } from "react";
+import BlockWebsiteTab from "../frontend/BlockWebsiteTab.js";
+import UsageSummary from "../frontend/UsageSummary.js";
 
 function App() {
-	const [tabs, setTabs] = useState([]);
-
-	useEffect(() => {
-		const fetchTabs = async () => {
-			const repo = await injectTabsRepositorySingleton();
-			try {
-				const tabsFromRepo = await repo.getTabs();
-				setTabs(tabsFromRepo);
-			} catch (error) {
-				console.error("Error fetching tabs:", error); // Add this line
-			}
-		};
-
-		fetchTabs();
-	}, []);
+	const [activeTab, setActiveTab] = useState(null);
 
 	return (
 		<div className="App">
 			<header className="App-header">
-				<p>ECE 49595 0SS Senior Design Project</p>
+				<p>WellQuest</p>
 			</header>
-			<div></div>
+
+			<div className="tabs">
+				<ul>
+					<li
+						title="Usage Summary"
+						onClick={() => setActiveTab("Usage Summary")}
+					>
+						<label role="button">
+							<span>{"Usage Summary"}</span>
+						</label>
+					</li>
+					<li
+						title="Block Website"
+						onClick={() => setActiveTab("Block Website")}
+					>
+						<label role="button">
+							<span>{"Block Website"}</span>
+						</label>
+					</li>
+				</ul>
+			</div>
+			{activeTab === "Usage Summary" && <UsageSummary />}
+			{activeTab === "Block Website" && <BlockWebsiteTab />}
 		</div>
 	);
 }
