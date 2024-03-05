@@ -4,7 +4,7 @@ import BlockWebsiteTab from "../frontend/BlockWebsiteTab.js";
 import UsageSummary from "../frontend/UsageSummary.js";
 
 function App() {
-	const [activeTab, setActiveTab] = useState(null);
+	const [activeTab, setActiveTab] = useState("Usage Summary"); // Set default active tab to "Usage Summary"
 
 	return (
 		<div className="App">
@@ -17,6 +17,9 @@ function App() {
 					<li
 						title="Usage Summary"
 						onClick={() => setActiveTab("Usage Summary")}
+						className={
+							activeTab === "Usage Summary" ? "active" : ""
+						}
 					>
 						<label role="button">
 							<span>{"Usage Summary"}</span>
@@ -25,6 +28,9 @@ function App() {
 					<li
 						title="Block Website"
 						onClick={() => setActiveTab("Block Website")}
+						className={
+							activeTab === "Block Website" ? "active" : ""
+						}
 					>
 						<label role="button">
 							<span>{"Block Website"}</span>

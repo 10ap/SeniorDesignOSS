@@ -1,6 +1,33 @@
-.pie-chart-container {
+.pie-chart-and-table-container {
     display: flex;
-    width: 100%;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
 }
 
+.table-container {
+    flex: 1;
+    margin-left: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}

@@ -48,6 +48,25 @@ async function trackerFunc() {
 			}
 		}
 	}
+	const serializedData = serializeTabRepository(repo);
+	chrome.storage.local.set({ tabData: serializedData }, () => {
+		if (chrome.runtime.lastError) {
+			console.error(
+				"Error storing data:",
+				chrome.runtime.lastError.message
+			);
+			return;
+		}
+	});
+}
 
-	// console.log(repo);
+function serializeTabRepository(tabRepository) {
+	const serializedTabs = tabRepository.getTabs().map((tab) => ({
+		url: tab.url,
+		count: tab.counter,
+		favicon: tab.favicon,
+	}));
+
+	// Return the serialized data
+	return JSON.stringify(serializedTabs);
 }
