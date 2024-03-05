@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */ 
+/* eslint-disable no-undef */
 import React, { Component } from "react";
 import { PieChart, Pie, Legend, Tooltip, Cell } from "recharts";
 import "./UsageSummary.css";
@@ -44,6 +44,7 @@ class UsageSummary extends Component {
 				return;
 			}
 			const tabData = result.tabData;
+			console.log("Retrieved data:", tabData);
 			const deserializedData = deserializeTabRepository(tabData);
 
 			// Update the component state with the retrieved data
@@ -71,6 +72,19 @@ class UsageSummary extends Component {
 		} while (usedColors.has(color));
 		usedColors.add(color);
 		return color;
+	};
+
+	// Format time in hours, minutes, and seconds
+	formatTime = (seconds) => {
+		let timeString = "";
+		timeString += Math.floor(seconds / 3600)
+			? `${Math.floor(seconds / 3600)}h `
+			: "";
+		timeString += Math.floor((seconds % 3600) / 60)
+			? `${Math.floor((seconds % 3600) / 60)}m `
+			: "";
+		timeString += `${seconds % 60}s`;
+		return timeString;
 	};
 
 	render() {
@@ -110,14 +124,16 @@ class UsageSummary extends Component {
 							<thead>
 								<tr>
 									<th>URL</th>
-									<th>Time Spent (seconds)</th>
+									<th>Time Spent</th>
 								</tr>
 							</thead>
 							<tbody>
 								{data.map((entry, index) => (
 									<tr key={`row-${index}`}>
 										<td>{entry.url}</td>
-										<td>{entry.counter}</td>
+										<td>
+											{this.formatTime(entry.counter)}
+										</td>
 									</tr>
 								))}
 							</tbody>
