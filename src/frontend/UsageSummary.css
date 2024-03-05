@@ -10,19 +10,21 @@
 }
 
 table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
 }
 
-th,
-td {
+th {
     padding: 8px;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f2f2f2;
+    align-items: right;
 }
 
-th {
-    background-color: #f2f2f2;
+td {
+    padding: 8px;
 }
+
 
 tr:nth-child(even) {
     background-color: #f2f2f2;

@@ -16,6 +16,11 @@ function deserializeTabRepository(serializedData) {
 	return deserializedTabs;
 }
 
+// function extractFavicon(url) {
+// 	const domain = url.split('//')[1].split('/')[0];
+// 	return `https://www.google.com/s2/favicons?domain=${domain}`;
+//   }
+
 class UsageSummary extends Component {
 	constructor(props) {
 		super(props);
@@ -64,6 +69,7 @@ class UsageSummary extends Component {
 		});
 	};
 
+
 	// Generate a unique color not already used
 	generateUniqueColor = (usedColors) => {
 		let color;
@@ -86,6 +92,7 @@ class UsageSummary extends Component {
 		timeString += `${seconds % 60}s`;
 		return timeString;
 	};
+
 
 	render() {
 		const { data } = this.state;
@@ -123,14 +130,27 @@ class UsageSummary extends Component {
 						<table>
 							<thead>
 								<tr>
-									<th>URL</th>
+								 	<th colSpan="2">Website</th>
 									<th>Time Spent</th>
 								</tr>
 							</thead>
 							<tbody>
 								{data.map((entry, index) => (
 									<tr key={`row-${index}`}>
-										<td>{entry.url}</td>
+										<td>
+											{entry.favicon && (
+											<img
+												src={entry.favicon}
+												alt="Favicon"
+												width="16"
+												height="16"
+												onError={(e) => {
+												e.target.onerror = null; // Prevent infinite error loop
+												e.target.src = 'default-favicon-url.jpg'; // Use a default favicon image if fetching fails
+												}}
+											/>
+											)} </td>
+											<td align="left"> {entry.url}</td>
 										<td>
 											{this.formatTime(entry.counter)}
 										</td>
