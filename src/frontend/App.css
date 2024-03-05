@@ -5,13 +5,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffecd5;
   display: flex;
   flex-direction: column;
   align-items: top;
   justify-content: top;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .tabs{
