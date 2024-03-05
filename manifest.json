@@ -9,7 +9,7 @@
     },
     "action": {
         "default_popup": "build/index.html",
-        "default_icon": "src/public/logo192.png"
+        "default_icon": "src/public/logo.png"
     },
     "permissions": [
         "activeTab", "tabs", "storage"

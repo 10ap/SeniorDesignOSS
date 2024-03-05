@@ -9,7 +9,7 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<p>WellQuest</p>
+				<p>WellQuest Productivity Tracker</p>
 			</header>
 
 			<div className="tabs">
