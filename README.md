@@ -16,7 +16,7 @@ The Productivity and Wellness Extension is an open-source software project aimed
 8. [Testing and Maintenance](#testing-and-maintenance)
 9. [Deployment](#deployment)
 10. [Installation Instructions](#installation-instructions)
-11. [Foot notes](#footnotes)
+11. [Foot notes](#foot-notes)
 
 ## Key Features
 
