@@ -1,41 +1,45 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
-// import { injectTabsRepositorySingleton } from "../backend/tabs/injectTabRepository.js";
-import { PieChart, Pie } from 'recharts';
+import React, { useState } from "react";
+import BlockWebsiteTab from "../frontend/BlockWebsiteTab.js";
+import UsageSummary from "../frontend/UsageSummary.js";
 
 function App() {
-	// const [tabs, setTabs] = useState([]);
-	const data2= [
-        { name: 'Geeksforgeeks', students: 400 },
-        { name: 'Technical scripter', students: 700 },
-        { name: 'Geek-i-knack', students: 200 },
-        { name: 'Geek-o-mania', students: 1000 }
-    ];
-
-	// useEffect(() => {
-	// 	const fetchTabs = async () => {
-	// 		const repo = await injectTabsRepositorySingleton();
-	// 		try {
-	// 			const tabsFromRepo = await repo.getTabs();
-	// 			setTabs(tabsFromRepo);
-	// 		} catch (error) {
-	// 			console.error("Error fetching tabs:", error); // Add this line
-	// 		}
-	// 	};
-
-	// 	fetchTabs();
-	// }, []);
+	const [activeTab, setActiveTab] = useState("Usage Summary"); // Set default active tab to "Usage Summary"
 
 	return (
 		<div className="App">
 			<header className="App-header">
-				<p>ECE 49595 0SS Senior Design Project</p>
+				<p>WellQuest Productivity Tracker</p>
 			</header>
-			<p>	List </p>
-			<PieChart width={400} height={300}>
-				<Pie data={data2} dataKey="students" fill="white" />
-			</PieChart>
-			console.log(data2);
+
+			<div className="tabs">
+				<ul>
+					<li
+						title="Usage Summary"
+						onClick={() => setActiveTab("Usage Summary")}
+						className={
+							activeTab === "Usage Summary" ? "active" : ""
+						}
+					>
+						<label role="button">
+							<span>{"Usage Summary"}</span>
+						</label>
+					</li>
+					<li
+						title="Block Website"
+						onClick={() => setActiveTab("Block Website")}
+						className={
+							activeTab === "Block Website" ? "active" : ""
+						}
+					>
+						<label role="button">
+							<span>{"Block Website"}</span>
+						</label>
+					</li>
+				</ul>
+			</div>
+			{activeTab === "Usage Summary" && <UsageSummary />}
+			{activeTab === "Block Website" && <BlockWebsiteTab />}
 		</div>
 	);
 }
