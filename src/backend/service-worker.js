@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 import { initTracker } from "./tracker.js";
 import { extractHostname } from "./utils.js";
-import { getAllBlockedTabs } from "./BlockWebsiteTab.js";
 initTracker();
 
 function blockedWebsiteWrapper() {
@@ -13,10 +12,15 @@ async function blockedWebsiteMain() {
 	const activeTab = window.tabs?.find((t) => t.active === true);
 	if (activeTab === undefined) return;
 	const activeDomain = extractHostname(activeTab.url);
-
-	const blockedTabs = getAllBlockedTabs();
-	if (blockedTabs.includes(activeDomain)) {
-		console.log("Blocked website detected!"); // TODO tell front end to show a message to alert the user.
+	let blockedTabs = [];
+	let blockedTabsArray = await browser.storage.local.get("blockedTabs");
+	if (blockedTabsArray === undefined) {
+		blockedTabs = [];
+	} else {
+		blockedTabs = blockedTabsArray["blockedTabs"];
+		if (blockedTabs !== undefined && blockedTabs.includes(activeDomain)) {
+			browser.tabs.remove(activeTab.id);
+		}
 	}
 }
 

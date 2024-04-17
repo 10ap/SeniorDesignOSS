@@ -49,7 +49,6 @@ class UsageSummary extends Component {
 				return;
 			}
 			const tabData = result.tabData;
-			console.log("Retrieved data:", tabData);
 			const deserializedData = deserializeTabRepository(tabData);
 
 			// Update the component state with the retrieved data
@@ -68,7 +67,6 @@ class UsageSummary extends Component {
 			});
 		});
 	};
-
 
 	// Generate a unique color not already used
 	generateUniqueColor = (usedColors) => {
@@ -92,7 +90,6 @@ class UsageSummary extends Component {
 		timeString += `${seconds % 60}s`;
 		return timeString;
 	};
-
 
 	render() {
 		const { data } = this.state;
@@ -130,7 +127,7 @@ class UsageSummary extends Component {
 						<table>
 							<thead>
 								<tr>
-								 	<th colSpan="2">Website</th>
+									<th colSpan="2">Website</th>
 									<th>Time Spent</th>
 								</tr>
 							</thead>
@@ -139,18 +136,20 @@ class UsageSummary extends Component {
 									<tr key={`row-${index}`}>
 										<td>
 											{entry.favicon && (
-											<img
-												src={entry.favicon}
-												alt="Favicon"
-												width="16"
-												height="16"
-												onError={(e) => {
-												e.target.onerror = null; // Prevent infinite error loop
-												e.target.src = 'default-favicon-url.jpg'; // Use a default favicon image if fetching fails
-												}}
-											/>
-											)} </td>
-											<td align="left"> {entry.url}</td>
+												<img
+													src={entry.favicon}
+													alt="Favicon"
+													width="16"
+													height="16"
+													onError={(e) => {
+														e.target.onerror = null; // Prevent infinite error loop
+														e.target.src =
+															"default-favicon-url.jpg"; // Use a default favicon image if fetching fails
+													}}
+												/>
+											)}{" "}
+										</td>
+										<td align="left"> {entry.url}</td>
 										<td>
 											{this.formatTime(entry.counter)}
 										</td>
