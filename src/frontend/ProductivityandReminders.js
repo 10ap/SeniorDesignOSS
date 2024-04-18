@@ -1,5 +1,13 @@
 import React, { Component } from "react";
 import "./ProductivityandReminders.css";
+import {
+	getAllHabits,
+	addHabit,
+	updateHabits,
+	deleteHabit,
+	resetHabits,
+} from "../backend/HabitsTab";
+
 class ProductivityandReminders extends Component {
 	constructor(props) {
 		super(props);
@@ -10,6 +18,10 @@ class ProductivityandReminders extends Component {
 			totalTime: 0, // totalTime for time-based habits
 			totalCount: 0, // totalCount for count-based habits
 		};
+	}
+
+	componentDidMount() {
+		this.setState({ habits: getAllHabits() });
 	}
 
 	// Handle input change for habit name
@@ -23,11 +35,21 @@ class ProductivityandReminders extends Component {
 	};
 
 	// Add a new habit to the list
-	addHabit = () => {
+	addHabit = (event) => {
+		event.preventDefault();
 		// don't let the user add empty habit
 		if (!this.state.newHabitName) {
 			return;
 		}
+		// check if the habit already exists
+		if (
+			this.state.habits.some(
+				(habit) => habit.name === this.state.newHabitName
+			)
+		) {
+			return;
+		}
+
 		const { newHabitName, measurementType } = this.state;
 		let newHabit = {};
 		if (measurementType === "time") {
@@ -43,10 +65,14 @@ class ProductivityandReminders extends Component {
 				totalCount: this.state.totalCount, // Initialize count to 0
 			};
 		}
-		this.setState((prevState) => ({
-			habits: [...prevState.habits, newHabit],
-			newHabitName: "", // Clear input
+		// add to habits in state and clear all the other states
+		this.setState(() => ({
+			newHabitName: "",
+			measurementType: "count",
+			totalTime: 0,
+			totalCount: 0,
 		}));
+		addHabit(newHabit);
 	};
 
 	// Increment the count for a habit
@@ -57,8 +83,9 @@ class ProductivityandReminders extends Component {
 			if (updatedHabits[habitIndex].totalCount === 0) {
 				// remove the habit if the count reaches 0
 				updatedHabits.splice(habitIndex, 1);
+				deleteHabit(habitIndex);
 			}
-
+			updateHabits(updatedHabits);
 			return { habits: updatedHabits };
 		});
 	};
@@ -68,11 +95,15 @@ class ProductivityandReminders extends Component {
 		this.setState((prevState) => {
 			const updatedHabits = [...prevState.habits];
 			updatedHabits[habitIndex].totalCount += 1;
+			updateHabits(updatedHabits);
 			return { habits: updatedHabits };
 		});
 	};
 
-	decrementTime = (habitIndex) => {};
+	resetHabits = () => {
+		resetHabits();
+		this.setState({ habits: [] });
+	};
 
 	// Render the component
 	render() {
@@ -107,11 +138,11 @@ class ProductivityandReminders extends Component {
 						onChange={(e) => {
 							if (measurementType === "time") {
 								this.setState({
-									totalTime: e.target.value,
+									totalTime: Number(e.target.value),
 								});
 							} else {
 								this.setState({
-									totalCount: e.target.value,
+									totalCount: Number(e.target.value),
 								});
 							}
 						}}
@@ -194,6 +225,7 @@ class ProductivityandReminders extends Component {
 						</li>
 					))}
 				</ul>
+				<button onClick={this.resetHabits}>Reset</button>
 			</div>
 		);
 	}

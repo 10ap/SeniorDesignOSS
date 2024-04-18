@@ -91,3 +91,18 @@
 .productivity-container button.decrement-button:hover{
     background-color: #c82333;
 }
+
+.productivity-container button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.productivity-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
