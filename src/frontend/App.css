@@ -5,15 +5,68 @@
 }
 
 .App-header {
-  background-color: #ffecd5;
+  background-color: #7C15FF;
   display: flex;
   flex-direction: column;
   align-items: top;
   justify-content: top;
   font-size: calc(10px + 2vmin);
+  color: whitesmoke;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  margin: 0px;
+  padding: 0px;
+  overflow: auto;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.tabs div {
+  width: 30%;
+  color: #747474;
+  margin-bottom: 20px;
+}
+
+.tab {
+  /* padding: 10px 20px 10px 20px; */
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color 0.3s ease-in-out;
   color: black;
 }
 
+.active {
+  border-bottom-color: #7C15FF;
+  color: black !important;
+}
+
+
+.tab-slider {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: #7C15FF;
+  transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+  left: 0;
+  width: 0;
+}
+
+/* 
 .tabs{
   width: 100%;
   max-width: 800px;
@@ -109,4 +162,5 @@
 
 .tabs ul li label img {
   height: 1.2em;
-}
+} */
+

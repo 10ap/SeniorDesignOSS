@@ -1,108 +1,135 @@
 /* ProductivityandReminders.css */
-
 /* Overall container styles */
 .productivity-container {
     font-family: Arial, sans-serif;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Heading styles */
-.productivity-container h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Input and button styles */
-.productivity-container input[type="text"],
-.productivity-container select,
-.productivity-container button {
-    width: 100%;
+    border-radius: 10px;
+    align-items: flex;
+  }
+  
+  /* Input and button styles */
+  .productivity-container input[type="text"],
+  .productivity-container select,
+  .productivity-container button,
+  .productivity-container input[type="number"]{
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
+    border-radius: 20px;
+    font-size: 15px;
+    outline: none;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 
-.productivity-container select {
+  .productivity-container input[type="text"] {
+    width: 30%;
+  }
+
+  .productivity-container input[type="number"] {
+    width: 15%;
+  }
+  
+  .productivity-container select {
     background-color: #fff;
-}
-
-.productivity-container button {
-    background-color: #007bff;
+    width: 15%;
+  }
+  
+  .productivity-container button {
+    background-color: #7C15FF;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.productivity-container button:hover {
-    background-color: #0056b3;
-}
-
-/* Habit list styles */
-.productivity-container ul {
+  }
+  
+  .productivity-container button:hover {
+    background-color: #6611d9;
+  }
+  
+  /* Habit list styles */
+  .productivity-container ul {
     list-style: none;
     padding: 0;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.productivity-container li {
+  .heading-name{
+    font-size: 15px;
+    font-weight: bold;
+    align-items: left;
+    flex: 4;
+    text-align: left;
+    padding-left: 10px;
+  }
+  
+  .measurement-type{
+    align-items: right;
+  }
+  
+  .productivity-container li {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.productivity-container button.increment-button,
-.productivity-container button.decrement-button, 
-.productivity-container button.start-button{
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .productivity-container button.increment-button,
+  .productivity-container button.decrement-button,
+  .productivity-container button.start-button {
     color: #fff;
-    padding: 5px 10px;
+    padding: 5px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
+    align-content: center;
+  }
 
-.productivity-container button.increment-button,
-.productivity-container button.start-button{
-    background-color: #28a745;
-}
-
-.productivity-container button.decrement-button{
-    background-color: #dc3545;
-}
-
-.productivity-container button.increment-button:hover,
-.productivity-container button.start-button:hover{
-    background-color: #218838;
-}
-
-.productivity-container button.decrement-button:hover{
-    background-color: #c82333;
-}
-
-.productivity-container button[type="submit"] {
+  .productivity-container button.start-button{
+    font-size: 12px;
+  }
+  
+  .productivity-container button.increment-button,
+  .productivity-container button.start-button {
+    background-color: #039011;
+  }
+  
+  .productivity-container button.decrement-button {
+    background-color: #9B0202;
+  }
+  
+  .productivity-container button.increment-button:hover,
+  .productivity-container button.start-button:hover {
+    background-color: #039011;
+  }
+  
+  .productivity-container button.decrement-button:hover {
+    background-color: #9B0202;
+  }
+  
+  /* Reset button styles */
+  .productivity-container button.reset-btn {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #007bff;
+    background-color: #7C15FF;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.productivity-container button[type="submit"]:hover {
-    background-color: #0056b3;
-}
+    margin-top: 20px;
+  }
+  
+  .productivity-container button.reset-btn:hover {
+    background-color: #6611d9;
+  }

@@ -111,7 +111,6 @@ class ProductivityandReminders extends Component {
 
 		return (
 			<div className="productivity-container">
-				<h1>Productivity and Reminders</h1>
 				<div>
 					<input
 						type="text"
@@ -124,7 +123,7 @@ class ProductivityandReminders extends Component {
 						onChange={this.handleMeasurementTypeChange}
 					>
 						<option value="count">Count</option>
-						<option value="time">Time</option>
+						<option value="time">Time in seconds</option>
 					</select>
 					{/* create a number to count down from or a total time to decrement from depending on the option above */}
 					<input
@@ -152,13 +151,6 @@ class ProductivityandReminders extends Component {
 				<ul>
 					{habits.map((habit, index) => (
 						<li key={index}>
-							{habit.name}
-							{/* display the totalTime or totalCount  based on the habit.measurementType*/}
-							(
-							{habit.measurementType === "count"
-								? `Remaining Count: ${habit.totalCount}`
-								: `Time: ${habit.totalTime} seconds`}
-							)
 							{habit.measurementType === "count" && (
 								<div>
 									<button
@@ -166,17 +158,13 @@ class ProductivityandReminders extends Component {
 										onClick={() =>
 											this.incrementCount(index)
 										}
-									>
-										Increment Count
-									</button>
+									>+</button>
 									<button
 										className="decrement-button"
 										onClick={() =>
 											this.decrementCount(index)
 										}
-									>
-										Decrement Count
-									</button>
+									>-</button>
 								</div>
 							)}
 							{habit.measurementType === "time" && (
@@ -222,6 +210,15 @@ class ProductivityandReminders extends Component {
 									</button>
 								</div>
 							)}
+							<div className="heading-name">
+								{habit.name}
+							</div>	
+							<div className="measurement-type">	
+								{/* display the totalTime or totalCount  based on the habit.measurementType*/}
+								{habit.measurementType === "count"
+									? `Count Remaining: ${habit.totalCount}`
+									: `Time Remaining: ${habit.totalTime} seconds`}
+							</div>
 						</li>
 					))}
 				</ul>
