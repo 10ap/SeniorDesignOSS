@@ -16,7 +16,6 @@ function deserializeTabRepository(serializedData) {
 	return deserializedTabs;
 }
 
-
 class UsageSummary extends Component {
 	constructor(props) {
 		super(props);
