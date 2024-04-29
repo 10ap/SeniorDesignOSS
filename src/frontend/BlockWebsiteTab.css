@@ -1,71 +1,78 @@
 .BlockWebsiteTab {
     padding: 20px;
-    background-color: #f8f9fa;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-.BlockWebsiteTab h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+  
+h3{
+    color: black;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 25px;
 }
 
 .BlockWebsiteTab form {
-    display: flex;
-    margin-bottom: 20px;
+display: flex;
+margin-bottom: 20px;
 }
 
 .BlockWebsiteTab input[type="text"] {
-    flex-grow: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+flex-grow: 1;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 20px;
+border-color: #7C15FF;
+outline: #7C15FF;
 }
 
 .BlockWebsiteTab button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+padding: 10px 20px;
+font-size: 16px;
+color: #fff;
+background-color: #7C15FF;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+transition: background-color 0.3s;
+margin-left: 10px;
 }
 
 .BlockWebsiteTab button[type="submit"]:hover {
-    background-color: #0056b3;
+background-color: #7C15FF;
 }
 
 .BlockWebsiteTab ul {
-    list-style-type: none;
-    padding: 0;
+list-style-type: none;
+padding: 0;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
 }
 
-.BlockWebsiteTab li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.removeButton {
+border-radius: 50%;
+border: 1px solid #7C15FF;
+background: none;
+color: #7C15FF !important;
+margin: 1rem;
+padding: 0.3rem 0.6rem;
+cursor: pointer;
 }
 
-.BlockWebsiteTab li button {
-    padding: 5px 10px;
-    font-size: 14px;
-    color: #fff;
-    background-color: #dc3545;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+
+.BlockWebsiteTab button.reset-btn {
+padding: 10px 20px;
+font-size: 16px;
+color: #fff;
+background-color: #6f42c1;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+transition: background-color 0.3s;
+margin-top: 20px;
 }
 
-.BlockWebsiteTab li button:hover {
-    background-color: #c82333;
+.BlockWebsiteTab button.reset-btn:hover {
+background-color: #4e2d89;
 }

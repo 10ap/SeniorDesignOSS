@@ -11,9 +11,12 @@ async function blockedWebsiteMain() {
 	const window = await browser.windows.getLastFocused({ populate: true });
 	const activeTab = window.tabs?.find((t) => t.active === true);
 	if (activeTab === undefined) return;
-	const activeDomain = extractHostname(activeTab.url);
+	let activeDomain = extractHostname(activeTab.url);
 	let blockedTabs = [];
 	let blockedTabsArray = await browser.storage.local.get("blockedTabs");
+	// strip www. from the domain if present
+	activeDomain = activeDomain.replace(/^www\./, "");
+	console.log(blockedTabsArray);
 	if (blockedTabsArray === undefined) {
 		blockedTabs = [];
 	} else {

@@ -1,0 +1,108 @@
+/* ProductivityandReminders.css
+
+/* Overall container styles */
+.productivity-container {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+.productivity-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Input and button styles */
+.productivity-container input[type="text"],
+.productivity-container select,
+.productivity-container button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.productivity-container select {
+    background-color: #fff;
+}
+
+.productivity-container button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.productivity-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Habit list styles */
+.productivity-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.productivity-container li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productivity-container button.increment-button,
+.productivity-container button.decrement-button, 
+.productivity-container button.start-button{
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.productivity-container button.increment-button,
+.productivity-container button.start-button{
+    background-color: #28a745;
+}
+
+.productivity-container button.decrement-button{
+    background-color: #dc3545;
+}
+
+.productivity-container button.increment-button:hover,
+.productivity-container button.start-button:hover{
+    background-color: #218838;
+}
+
+.productivity-container button.decrement-button:hover{
+    background-color: #c82333;
+}
+
+.productivity-container button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.productivity-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}

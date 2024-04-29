@@ -4,7 +4,6 @@ import {
 	deleteBlockedTab,
 	resetBlockedTabs,
 } from "../backend/BlockWebsiteTab.js";
-
 import React, { Component } from "react";
 import "./BlockWebsiteTab.css";
 
@@ -46,32 +45,34 @@ class BlockWebsiteTab extends Component {
 
 	render() {
 		const { blockedTabs, newTabUrl } = this.state;
-
 		return (
 			<div className="BlockWebsiteTab">
-				<h2>Block Websites</h2>
 				<form onSubmit={this.addBlockedTab}>
 					<input
 						type="text"
 						value={newTabUrl}
 						onChange={this.handleInputChange}
-						placeholder="Enter website URL"
+						placeholder="Enter the website you want to block..."
 					/>
 					<button type="submit">Add</button>
 				</form>
+				<h3>Blocked Websites</h3>
 				<ul>
 					{blockedTabs.map((tab, index) => (
-						<li key={index}>
-							{tab}
+						<div key={index}>
 							<button
+								className="removeButton"
 								onClick={() => this.removeBlockedTab(index)}
 							>
-								Remove
+								-
 							</button>
-						</li>
+							<span>{tab}</span>
+						</div>
 					))}
 				</ul>
-				<button onClick={this.resetBlockedTabs}>Reset</button>
+				<button className="reset-btn" onClick={this.resetBlockedTabs}>
+					Reset All
+				</button>
 			</div>
 		);
 	}

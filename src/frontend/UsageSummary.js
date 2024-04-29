@@ -16,11 +16,6 @@ function deserializeTabRepository(serializedData) {
 	return deserializedTabs;
 }
 
-// function extractFavicon(url) {
-// 	const domain = url.split('//')[1].split('/')[0];
-// 	return `https://www.google.com/s2/favicons?domain=${domain}`;
-//   }
-
 class UsageSummary extends Component {
 	constructor(props) {
 		super(props);
@@ -100,7 +95,6 @@ class UsageSummary extends Component {
 
 		return (
 			<div className="usage-summary-container">
-				<h2>Usage Summary</h2>
 				<div className="pie-chart-and-table-container">
 					<div className="pie-chart-container">
 						<PieChart width={400} height={400}>

@@ -1,0 +1,135 @@
+/* ProductivityandReminders.css */
+/* Overall container styles */
+.productivity-container {
+    font-family: Arial, sans-serif;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: flex;
+  }
+  
+  /* Input and button styles */
+  .productivity-container input[type="text"],
+  .productivity-container select,
+  .productivity-container button,
+  .productivity-container input[type="number"]{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 15px;
+    outline: none;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .productivity-container input[type="text"] {
+    width: 30%;
+  }
+
+  .productivity-container input[type="number"] {
+    width: 15%;
+  }
+  
+  .productivity-container select {
+    background-color: #fff;
+    width: 15%;
+  }
+  
+  .productivity-container button {
+    background-color: #7C15FF;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .productivity-container button:hover {
+    background-color: #6611d9;
+  }
+  
+  /* Habit list styles */
+  .productivity-container ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .heading-name{
+    font-size: 15px;
+    font-weight: bold;
+    align-items: left;
+    flex: 4;
+    text-align: left;
+    padding-left: 10px;
+  }
+  
+  .measurement-type{
+    align-items: right;
+  }
+  
+  .productivity-container li {
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .productivity-container button.increment-button,
+  .productivity-container button.decrement-button,
+  .productivity-container button.start-button {
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-content: center;
+  }
+
+  .productivity-container button.start-button{
+    font-size: 12px;
+  }
+  
+  .productivity-container button.increment-button,
+  .productivity-container button.start-button {
+    background-color: #039011;
+  }
+  
+  .productivity-container button.decrement-button {
+    background-color: #9B0202;
+  }
+  
+  .productivity-container button.increment-button:hover,
+  .productivity-container button.start-button:hover {
+    background-color: #039011;
+  }
+  
+  .productivity-container button.decrement-button:hover {
+    background-color: #9B0202;
+  }
+  
+  /* Reset button styles */
+  .productivity-container button.reset-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #7C15FF;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+  
+  .productivity-container button.reset-btn:hover {
+    background-color: #6611d9;
+  }
