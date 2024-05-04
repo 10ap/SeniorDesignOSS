@@ -20,7 +20,7 @@ WellQuest is an open-source software project that aims to improve productivity a
 5. Click on Load unpacked and select the folder containing the `manifest.json` file.
 
 - Extension Pane:
-This is what the extension pane looks like 
+This is what the extension pane looks like with the WellQuestExtension 
 ![Extension Screenshot](https://github.com/10ap/WellQuest/blob/master/src/userManualScreenshots/Extensions.png)
 
 - Usage Summary Tab:
