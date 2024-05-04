@@ -82,7 +82,7 @@ Automated update mechanism for delivering patches and new features.
 ## Installation Instructions
 
 1. Clone the repository.
-2. Run `npm install` to install dependencies.
+2. Run `npm install --legacy-peer-deps` to install dependencies.
 3. Run `npm run build` to create the service worker.
 4. Enable `developer mode` in your browser. by going to `chrome://extensions/` and toggling the switch.
 5. Click on `Load unpacked` and select the folder containing the `manifest.json` file.
