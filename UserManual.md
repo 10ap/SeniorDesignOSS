@@ -19,12 +19,20 @@ WellQuest is an open-source software project that aims to improve productivity a
 4. Enable developer mode in your browser. by going to `chrome://extensions/` and toggling the switch.
 5. Click on Load unpacked and select the folder containing the `manifest.json` file.
 
-Extension Pane:
+- Extension Pane:
+This is what the extension pane looks like 
 ![Extension Screenshot](https://github.com/10ap/WellQuest/blob/master/src/userManualScreenshots/Extensions.png)
 
-Tabs:
+- Usage Summary Tab:
+Click on the usage summary tab to get your browser summary 
 ![Usage Summary](https://github.com/10ap/WellQuest/blob/master/src/userManualScreenshots/UsageSummary.png)
+
+- Block Websites Tab:
+Example of how to enter a domain name so that it is blocked
 ![Block Websites](https://github.com/10ap/WellQuest/blob/master/src/userManualScreenshots/BlockWebsite.png)
+
+- Habit Tracker:
+Enter the count/ time you want for your customised habit
 ![Habit Tracker](https://github.com/10ap/WellQuest/blob/master/src/userManualScreenshots/HabitTracker.png)
 
 ### Usage
