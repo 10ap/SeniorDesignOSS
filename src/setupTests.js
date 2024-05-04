@@ -4,3 +4,8 @@
 // learn more: https://github.com/testing-library/jest-dom
 // setupTests.js
 require("@testing-library/jest-dom/extend-expect");
+// src/setupTests.js
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
